@@ -1,4 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class GunScript : MonoBehaviour
 {
@@ -7,15 +11,32 @@ public class GunScript : MonoBehaviour
 
     // You can adjust fire rate and other properties as needed
     public float fireRate = 0.2f;
-    private float nextFireTime = 0f;
+
+    // Variable to check if the gun is currently firing
+    private bool isFiring = false;
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
+        // Start the firing coroutine while the Fire1 button is held down
+        if (Input.GetButton("Fire1") && !isFiring)
         {
-            nextFireTime = Time.time + fireRate;
-            FireBullet();
+            StartCoroutine(FireCoroutine());
         }
+    }
+
+    private IEnumerator FireCoroutine()
+    {
+        // Set the flag to indicate the gun is currently firing
+        isFiring = true;
+
+        // Fire the first bullet immediately upon pressing Fire1
+        FireBullet();
+
+        // Wait for the specified fire rate time before firing the next bullet
+        yield return new WaitForSeconds(fireRate);
+
+        // Reset the flag to indicate the gun has finished firing
+        isFiring = false;
     }
 
     private void FireBullet()

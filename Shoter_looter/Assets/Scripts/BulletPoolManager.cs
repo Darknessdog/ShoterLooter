@@ -51,7 +51,7 @@ public class BulletPoolManager : MonoBehaviour
             UpdateBulletsLeftText(); // Update the UI Text to reflect the new number of bullets left
             return bulletPool.Dequeue();
         }
-           
+
         else
         {
             Debug.LogWarning("Bullet pool exhausted. Consider increasing the pool size or handling this case differently.");
