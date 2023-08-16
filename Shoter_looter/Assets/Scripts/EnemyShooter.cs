@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyShooter : MonoBehaviour
+public class EnemyShooter : MonoBehaviour, IEnemy
 {
     //variables para la vida
     public int maxHealth = 100; 
