@@ -9,8 +9,8 @@ public class FirstPersonControler : MonoBehaviour
     private bool SholdJump  => Input.GetKeyDown(JumpKey) && characterControler.isGrounded;
 
     [Header("Movimiento parametros")]
-    [SerializeField] private float walkSpeed = 3.0f;
-    [SerializeField] private float sprintSpeed = 6.0f;
+    [SerializeField] private float walkSpeed = 6.0f;
+    [SerializeField] private float sprintSpeed = 12.0f;
     
 
     [Header("Functional Options")]
