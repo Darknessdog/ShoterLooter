@@ -36,7 +36,7 @@ Transform:
   - {fileID: 3774101731809881024}
   - {fileID: 1630394492765719215}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5458214331043014585
 MeshFilter:
@@ -108,9 +108,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.7593272
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3796636, z: 0}
 --- !u!195 &1263983014417771078
 NavMeshAgent:
   m_ObjectHideFlags: 0

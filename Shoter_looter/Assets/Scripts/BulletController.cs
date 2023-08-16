@@ -28,11 +28,15 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        // Get the IEnemy component from the collided object
+        IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+
         // Check if the bullet has hit an enemy
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (enemy != null)
         {
             // Apply damage to the enemy and return the bullet to the pool
-            collision.gameObject.GetComponent<EnemyShooter>().TakeDamage(damage);
+            enemy.TakeDamage(damage);
             ReturnToPool();
         }
         else
@@ -40,7 +44,7 @@ public class BulletController : MonoBehaviour
             // Return the bullet to the pool upon hitting any other object
             ReturnToPool();
         }
-        
+
     }
 
     private void ReturnToPool()
