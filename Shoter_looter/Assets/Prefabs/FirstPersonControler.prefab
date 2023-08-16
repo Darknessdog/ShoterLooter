@@ -187,12 +187,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb8e02917531264eb97d366a341fc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  gravity: 30
+  walkSpeed: 6
+  sprintSpeed: 12
+  canSprint: 1
+  canJump: 1
+  sprintKey: 304
+  JumpKey: 32
   lookSpeedX: 2
   lookSpeedy: 2
   upperLookLimit: 80
   lowerLookLimit: 80
+  JumpForce: 8
+  gravity: 30
 --- !u!1 &4291389962781191696
 GameObject:
   m_ObjectHideFlags: 0
