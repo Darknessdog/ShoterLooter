@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NavigationTest : MonoBehaviour, IEnemy
+public class EnemyJuggernaut : MonoBehaviour, IEnemy
 {
-
     public int maxHealth = 200; // Maximum health of the enemy
     private int currentHealth;   // Current health of the enemy
 
@@ -27,6 +26,8 @@ public class NavigationTest : MonoBehaviour, IEnemy
     //gizmos para visualizar estas distancias
     public Color gizmoDetection = Color.red;
     public float sphereDetection;
+    public Color gizmoCharge = Color.green;
+    public float sphereCharge;
 
 
 
@@ -35,6 +36,7 @@ public class NavigationTest : MonoBehaviour, IEnemy
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         sphereDetection = detectionDistance;
+        sphereCharge = chargeDistance;
     }
 
     private void Update()
@@ -106,6 +108,8 @@ public class NavigationTest : MonoBehaviour, IEnemy
     {
         Gizmos.color = gizmoDetection;
         Gizmos.DrawWireSphere(transform.position, sphereDetection);
+        Gizmos.color = gizmoCharge;
+        Gizmos.DrawWireSphere(transform.position, sphereCharge);
 
     }
 
