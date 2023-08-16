@@ -5,6 +5,8 @@ public class BulletController : MonoBehaviour
     public float speed = 20f; // Adjust the bullet speed as needed
     public float maxDistance = 50f; // The maximum distance the bullet can travel before being returned to the pool
 
+    public int damage = 20; // Adjust the damage as needed
+
     private Vector3 initialPosition;
 
     private void OnEnable()
@@ -26,8 +28,19 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Add collision handling if needed (e.g., if the bullet should disappear upon hitting an object)
-        ReturnToPool();
+        // Check if the bullet has hit an enemy
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Apply damage to the enemy and return the bullet to the pool
+            collision.gameObject.GetComponent<EnemyShooter>().TakeDamage(damage);
+            ReturnToPool();
+        }
+        else
+        {
+            // Return the bullet to the pool upon hitting any other object
+            ReturnToPool();
+        }
+        
     }
 
     private void ReturnToPool()
